@@ -2,4 +2,4 @@
 
 NinjaMock: https://ninjamock.com/s/DJ9W6Rx
 
-Apiary: https://app.apiary.io/caronaufg
+Apiary: https://caronaufg.docs.apiary.io/
