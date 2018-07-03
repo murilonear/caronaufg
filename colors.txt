@@ -1,0 +1,2 @@
+background color : #12478e
+button color: #2da4f4

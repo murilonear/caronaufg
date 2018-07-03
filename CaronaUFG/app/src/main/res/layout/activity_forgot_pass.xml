@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container_forgot_pass"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#12478e"
+    tools:context=".ForgotPassActivity">
+
+
+    <RelativeLayout
+        android:id="@+id/container_form_forgot_pass"
+        android:layout_width="343dp"
+        android:layout_height="468dp"
+        android:layout_centerInParent="true"
+        android:layout_margin="22dp"
+        android:background="@android:color/background_light">
+
+        <ImageView
+            android:id="@+id/logoForgot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="45dp"
+            app:srcCompat="@drawable/logo" />
+
+        <TextView
+            android:id="@+id/textViewForgot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="137dp"
+            android:text="@string/text_forgot_pass"
+            android:textAppearance="@android:style/TextAppearance.Large" />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="186dp">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/userEmailForgotId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/user_email" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="172dp">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/userNameForgotId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/user_login" />
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/buttonForgotSendId"
+            android:layout_width="306dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="112dp"
+            android:background="#2da4f4"
+            android:text="@string/button_forgot_send"
+            android:textColor="@android:color/background_light" />
+
+        <Button
+            android:id="@+id/buttonForgotToRegisterId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/buttonForgotSendId"
+            android:layout_marginBottom="40dp"
+            android:background="@android:color/background_light"
+            android:text="@string/button_register_text"
+            android:textAllCaps="false"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/buttonForgotToLoginId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/buttonForgotToRegisterId"
+            android:layout_marginEnd="25dp"
+            android:background="@android:color/background_light"
+            android:text="@string/text_button_login"
+            android:textAllCaps="false"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+</RelativeLayout>

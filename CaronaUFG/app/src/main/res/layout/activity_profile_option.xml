@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container_profile_option"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#12478e"
+    tools:context=".ProfileOptionActivity">
+
+
+    <RelativeLayout
+        android:id="@+id/container_form_profile_option"
+        android:layout_width="335dp"
+        android:layout_height="465dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="22dp"
+        android:layout_marginLeft="22dp"
+        android:layout_marginRight="22dp"
+        android:layout_marginTop="22dp"
+        android:background="@android:color/background_light">
+
+        <ImageView
+            android:id="@+id/imageViewProfileOption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="45dp"
+            app:srcCompat="@drawable/logo" />
+
+        <TextView
+            android:id="@+id/welcomeProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="125dp"
+            android:text="@string/welcome"
+            android:textAppearance="@android:style/TextAppearance.Large" />
+
+        <TextView
+            android:id="@+id/userNameProfileId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="162dp"
+            android:text="<username>"
+            android:textAppearance="@android:style/TextAppearance.Large" />
+
+        <TextView
+            android:id="@+id/textViewProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/text_profile_option"
+            android:textAppearance="@android:style/TextAppearance.Medium" />
+
+        <Button
+            android:id="@+id/buttonGiveOptionId"
+            android:layout_width="252dp"
+            android:layout_height="35dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="154dp"
+            android:background="#2da4f4"
+            android:text="@string/text_give_option"
+            android:textAllCaps="false"
+            android:textColor="@android:color/background_light"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/buttonNeedOptionId"
+            android:layout_width="252dp"
+            android:layout_height="35dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="79dp"
+            android:background="#2da4f4"
+            android:text="@string/text_need_option"
+            android:textAllCaps="false"
+            android:textColor="@android:color/background_light"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="17dp"
+            android:background="@android:color/background_light"
+            android:text="@string/text_leave"
+            android:textAllCaps="false"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="16sp" />
+    </RelativeLayout>
+</RelativeLayout>

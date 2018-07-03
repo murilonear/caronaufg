@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container_register"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#12478e"
+    tools:context=".RegisterActivity">
+
+
+    <RelativeLayout
+        android:id="@+id/container_form_register"
+        android:layout_width="343dp"
+        android:layout_height="467dp"
+        android:layout_centerInParent="true"
+        android:background="@android:color/background_light">
+
+        <ImageView
+            android:id="@+id/logoRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="45dp"
+            app:srcCompat="@drawable/logo" />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/userLoginRegisterId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/userNameRegisterId"
+            android:layout_alignParentStart="true"
+            android:hint="@string/user_login">
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/userEmailRegisterId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/userPasswordRegisterId"
+            android:layout_alignParentStart="true">
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:hint="@string/user_email" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/userPasswordRegisterId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/buttonCadastrarId"
+            android:layout_alignParentStart="true">
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:hint="@string/user_password" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/userNameRegisterId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/userEmailRegisterId"
+            android:layout_alignParentStart="true">
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/user_name" />
+        </android.support.design.widget.TextInputLayout>
+
+        <TextView
+            android:id="@+id/textViewRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="137dp"
+            android:text="@string/text_register"
+            android:textAppearance="@android:style/TextAppearance.Large" />
+
+        <Button
+            android:id="@+id/buttonCadastrarId"
+            android:layout_width="293dp"
+            android:layout_height="38dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="22dp"
+            android:background="#2da4f4"
+            android:text="@string/button_register_text"
+            android:textColor="@android:color/background_light" />
+    </RelativeLayout>
+</RelativeLayout>

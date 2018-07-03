@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Carona UFG</string>
+    <string name="user_login">Nome de usuário</string>
+    <string name="user_password">Senha</string>
+    <string name="text_button_login">Entrar</string>
+    <string name="text_forgot_password">Esqueceu a senha?</string>
+    <string name="button_register">REGISTRAR-SE</string>
+    <string name="user_email">Email</string>
+    <string name="user_name">Nome completo</string>
+    <string name="text_register">Cadastrar nova conta</string>
+    <string name="button_register_text">Cadastre-se</string>
+    <string name="text_forgot_pass">Recuperar senha</string>
+    <string name="button_forgot_send">Enviar</string>
+    <string name="text_profile_option">Selecione uma das opções abaixo:</string>
+    <string name="welcome">Seja bem-vindo</string>
+    <string name="text_give_option">Estou oferecendo uma carona</string>
+    <string name="text_need_option">Estou precisando de uma carona</string>
+    <string name="text_leave">Sair</string>
+</resources>
