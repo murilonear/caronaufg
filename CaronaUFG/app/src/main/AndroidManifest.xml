@@ -9,16 +9,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LoginActivity">
+        <activity android:name=".auth.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".ForgotPassActivity" />
-        <activity android:name=".ProfileOptionActivity"></activity>
+        <activity android:name=".auth.RegisterActivity" />
+        <activity android:name=".auth.ForgotPassActivity" />
+        <activity android:name=".auth.ProfileOptionActivity" />
+        <activity android:name=".auth.ChangeProfileActivity" />
+        <activity android:name=".auth.DriverHomeActivity" />
+        <activity android:name=".auth.MenuDriverActivity" />
+        <activity android:name=".auth.TravelHistoryDriverActivity" />
+        <activity android:name=".auth.PassengerHomeActivity" />
+        <activity android:name=".auth.MenuPassengerActivity" />
+        <activity android:name=".auth.TravelHistoryPassengerActivity"></activity>
     </application>
 
 </manifest>

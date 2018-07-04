@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container_menu_drive"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#12478e"
+    tools:context=".auth.MenuDriverActivity">
+
+
+    <RelativeLayout
+        android:id="@+id/container_form_menu_drive"
+        android:layout_width="347dp"
+        android:layout_height="467dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="22dp"
+        android:layout_marginLeft="22dp"
+        android:layout_marginRight="22dp"
+        android:layout_marginTop="22dp"
+        android:background="@android:color/background_light">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="124dp"
+            android:layout_height="98dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="3dp"
+            android:layout_marginTop="3dp"
+            app:srcCompat="@drawable/profile" />
+
+        <TextView
+            android:id="@+id/nameMenuDriveId"
+            android:layout_width="207dp"
+            android:layout_height="48dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="6dp"
+            android:layout_marginTop="5dp"
+            android:background="@android:color/background_light"
+            android:text="Motorista: username"
+            android:textAlignment="center"
+            android:textAppearance="@android:style/TextAppearance.Medium"
+            android:textColor="@android:color/black" />
+
+        <Button
+            android:id="@+id/changeForPassengerId"
+            android:layout_width="212dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/nameMenuDriveId"
+            android:layout_marginEnd="1dp"
+            android:background="@android:color/background_light"
+            android:text="@string/change_for_passanger"
+            android:textAllCaps="false"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/waitPassengerId"
+            android:layout_width="332dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView2"
+            android:layout_centerHorizontal="true"
+            android:background="@android:color/background_light"
+            android:text="Passageiros aguardando (2)"
+            android:textAllCaps="false"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/mySchedulesDriverId"
+            android:layout_width="333dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/waitPassengerId"
+            android:layout_centerHorizontal="true"
+            android:background="@android:color/background_light"
+            android:text="@string/my_schedules_driver"
+            android:textAllCaps="false"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/travelHistoryMenuDriverId"
+            android:layout_width="335dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mySchedulesDriverId"
+            android:layout_centerHorizontal="true"
+            android:background="@android:color/background_light"
+            android:text="@string/travel_history"
+            android:textAllCaps="false"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/changeProfileMenuDriverId"
+            android:layout_width="336dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/travelHistoryMenuDriverId"
+            android:layout_centerHorizontal="true"
+            android:background="@android:color/background_light"
+            android:text="@string/change_profile"
+            android:textAllCaps="false"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/leaveMenuDriverId"
+            android:layout_width="336dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/changeProfileMenuDriverId"
+            android:layout_centerHorizontal="true"
+            android:background="@android:color/background_light"
+            android:text="@string/text_leave"
+            android:textAllCaps="false"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/logoMenuDriver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="39dp"
+            app:srcCompat="@drawable/logo" />
+
+    </RelativeLayout>
+</RelativeLayout>

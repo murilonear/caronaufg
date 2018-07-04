@@ -16,4 +16,26 @@
     <string name="text_give_option">Estou oferecendo uma carona</string>
     <string name="text_need_option">Estou precisando de uma carona</string>
     <string name="text_leave">Sair</string>
+    <string name="age_change_profile">Idade</string>
+    <string name="change_course">Curso</string>
+    <string name="user_pass_current">Senha Atual</string>
+    <string name="new_pass">Nova Senha</string>
+    <string name="save_change">Salvar</string>
+    <string name="driver_text">Carona UFG - Motorista</string>
+    <string name="text_begin">De:</string>
+    <string name="text_goal">Para:</string>
+    <string name="text_date">Data:</string>
+    <string name="text_horary">Horário de Partida:</string>
+    <string name="text_number_places">Quantidade de Vagas:</string>
+    <string name="value_driver_text">Valor da Carona:</string>
+    <string name="change_for_passanger">Alterar para passageiro</string>
+    <string name="my_schedules_driver">Meus horários</string>
+    <string name="travel_history">Histórico de Viagens</string>
+    <string name="change_profile">Alterar Perfil</string>
+    <string name="travel_history_driver"> Histórico de Viagens do Motorista</string>
+    <string name="back_to_menu">Voltar ao menu</string>
+    <string name="passenger_text">Carona UFG - Passageiro</string>
+    <string name="change_for_driver">Alterar para Motorista</string>
+    <string name="my_schedules_passenger">Histórico de Viagens</string>
+    <string name="travel_history_passenger">Histórico de Viagens - Passageiro</string>
 </resources>
