@@ -10,23 +10,29 @@ import android.widget.ListView;
 import caronaufg.android.com.caronaufg.R;
 
 public class TravelHistoryPassengerActivity extends AppCompatActivity {
-
-    private ListView historyPassenger;
-    private Button backToMenuHistoryPassenger;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_travel_history_passenger);
         getSupportActionBar().hide();
+        setupButtonBackToMenuHistoryPassenger();
+        setupListViewHistoryPassenger();
 
-        historyPassenger = findViewById(R.id.listViewHistoryPassengerId);
-        backToMenuHistoryPassenger = findViewById(R.id.backToMenuHistoryPassengerId);
+    }
+
+    private void setupListViewHistoryPassenger() {
+        ListView historyPassenger = findViewById(R.id.listViewHistoryPassengerId);
+    }
+
+    private void setupButtonBackToMenuHistoryPassenger() {
+        Button backToMenuHistoryPassenger = findViewById(R.id.backToMenuHistoryPassengerId);
         backToMenuHistoryPassenger.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(TravelHistoryPassengerActivity.this,MenuPassengerActivity.class));
+                startActivity(new Intent(TravelHistoryPassengerActivity.this, MenuPassengerActivity.class));
             }
         });
+
     }
+
 }

@@ -11,30 +11,27 @@ import android.widget.Toast;
 import caronaufg.android.com.caronaufg.R;
 
 public class ChangeProfileActivity extends AppCompatActivity {
-    private TextInputEditText changeName;
-    private TextInputEditText changeEmail;
-    private TextInputEditText changeCourse;
-    private TextInputEditText currentPass;
-    private TextInputEditText newPass;
-    private Button changeSave;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_profile);
         getSupportActionBar().hide();
+        setupChangeProfile();
+    }
 
-        changeName = findViewById(R.id.changeNameId);
-        changeEmail = findViewById(R.id.changeEmailId);
-        changeCourse = findViewById(R.id.changeCourseId);
-        currentPass = findViewById(R.id.currentPasswordId);
-        changeSave = findViewById(R.id.buttonChangeSaveId);
+    private void setupChangeProfile() {
+        TextInputEditText changeName = findViewById(R.id.changeNameId);
+        TextInputEditText changeEmail = findViewById(R.id.changeEmailId);
+        TextInputEditText changeCourse = findViewById(R.id.changeCourseId);
+        TextInputEditText currentPass = findViewById(R.id.currentPasswordId);
+        Button changeSave = findViewById(R.id.buttonChangeSaveId);
 
         changeSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(ChangeProfileActivity.this,"Alterações salvas",Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(ChangeProfileActivity.this,ProfileOptionActivity.class));
+                Toast.makeText(getApplicationContext(), "Alterações salvas", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(ChangeProfileActivity.this, ProfileOptionActivity.class));
             }
         });
     }

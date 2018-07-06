@@ -11,41 +11,46 @@ import android.widget.Toast;
 import caronaufg.android.com.caronaufg.R;
 
 public class ForgotPassActivity extends AppCompatActivity {
-    private TextInputEditText userEmailForgot;
-    private TextInputEditText userLoginForgot;
-    private Button forgotSend;
-    private Button forgotToRegister;
-    private Button forgotToLogin;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot_pass);
         getSupportActionBar().hide();
+        setupButtonForgotSend();
+        setupButtonForgotToLogin();
+        setupButtonForgotToRegister();
+    }
 
-        userEmailForgot = findViewById(R.id.userEmailForgotId);
-        userLoginForgot = findViewById(R.id.userLoginForgotId);
-        forgotSend = findViewById(R.id.buttonForgotSendId);
-        forgotToLogin = findViewById(R.id.buttonForgotToLoginId);
-        forgotToRegister = findViewById(R.id.buttonForgotToRegisterId);
-
+    private void setupButtonForgotSend() {
+        TextInputEditText userEmailForgot = findViewById(R.id.userEmailForgotId);
+        TextInputEditText userLoginForgot = findViewById(R.id.userLoginForgotId);
+        Button forgotSend = findViewById(R.id.buttonForgotSendId);
         forgotSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(ForgotPassActivity.this,"Enviado para o email de cadastro", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ForgotPassActivity.this, "Enviado para o email de cadastro", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void setupButtonForgotToLogin() {
+        Button forgotToLogin = findViewById(R.id.buttonForgotToLoginId);
         forgotToLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(ForgotPassActivity.this, LoginActivity.class));
             }
         });
+    }
+
+    private void setupButtonForgotToRegister() {
+        Button forgotToRegister = findViewById(R.id.buttonForgotToRegisterId);
         forgotToRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ForgotPassActivity.this,RegisterActivity.class));
+                startActivity(new Intent(ForgotPassActivity.this, RegisterActivity.class));
             }
         });
+
     }
 }

@@ -11,24 +11,21 @@ import android.widget.Toast;
 import caronaufg.android.com.caronaufg.R;
 
 public class PassengerHomeActivity extends AppCompatActivity {
-    private TextInputEditText beginPassenger;
-    private TextInputEditText goalPassenger;
-    private TextInputEditText horaryPassenger;
-    private TextInputEditText datePassenger;
-    private Button savePassenger;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_passenger_home);
         getSupportActionBar().hide();
-
-
-        beginPassenger = findViewById(R.id.beginPassengerId);
-        goalPassenger = findViewById(R.id.goalPassengerId);
-        horaryPassenger = findViewById(R.id.horaryPassengerId);
-        datePassenger = findViewById(R.id.datePassengerId);
-        savePassenger = findViewById(R.id.savePassengerConfigId);
+        setupButtonSavePassengerConfig();
+    }
+    private void setupButtonSavePassengerConfig(){
+        TextInputEditText beginPassenger = findViewById(R.id.beginPassengerId);
+        TextInputEditText goalPassenger = findViewById(R.id.goalPassengerId);
+        TextInputEditText horaryPassenger = findViewById(R.id.horaryPassengerId);
+        TextInputEditText datePassenger = findViewById(R.id.datePassengerId);
+        Button savePassenger = findViewById(R.id.savePassengerConfigId);
 
         savePassenger.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,5 +34,6 @@ public class PassengerHomeActivity extends AppCompatActivity {
                 startActivity(new Intent(PassengerHomeActivity.this,MenuPassengerActivity.class));
             }
         });
+
     }
 }

@@ -11,44 +11,54 @@ import android.widget.Toast;
 import caronaufg.android.com.caronaufg.R;
 
 public class ProfileOptionActivity extends AppCompatActivity {
-
-
-    private TextView userNameProfile;
-    private Button giveOption;
-    private Button needOption;
-    private Button leaveOptionProfile;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_option);
         getSupportActionBar().hide();
-        userNameProfile = findViewById(R.id.userNameProfileId);
-        userNameProfile.setText("Teste");
+        setupButtonGiveOption();
+        setupButtonLeaveOptionProfile();
+        setupButtonNeedOption();
+        setupNameTextProfileOption();
+    }
 
-        giveOption = findViewById(R.id.buttonGiveOptionId);
-        needOption = findViewById(R.id.buttonNeedOptionId);
-        leaveOptionProfile = findViewById(R.id.leaveOptionProfileId);
-
-        giveOption.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(ProfileOptionActivity.this,MenuDriverActivity.class));
-            }
-        });
-
+    private void setupButtonLeaveOptionProfile() {
+        Button leaveOptionProfile = findViewById(R.id.leaveOptionProfileId);
         leaveOptionProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(ProfileOptionActivity.this,"Efetuando logout",Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(ProfileOptionActivity.this,LoginActivity.class));
+                Toast.makeText(ProfileOptionActivity.this, "Efetuando logout", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(ProfileOptionActivity.this, LoginActivity.class));
             }
         });
+
+    }
+
+    private void setupButtonGiveOption() {
+        Button giveOption = findViewById(R.id.buttonGiveOptionId);
+        giveOption.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ProfileOptionActivity.this, MenuDriverActivity.class));
+            }
+        });
+
+    }
+
+    private void setupButtonNeedOption() {
+        Button needOption = findViewById(R.id.buttonNeedOptionId);
         needOption.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ProfileOptionActivity.this,MenuPassengerActivity.class));
+                startActivity(new Intent(ProfileOptionActivity.this, MenuPassengerActivity.class));
             }
         });
+
+    }
+
+    private void setupNameTextProfileOption() {
+        TextView userNameProfile = findViewById(R.id.userNameProfileId);
+        userNameProfile.setText("Teste"); // Nome temporário, este nome será alterado dinamicamente
     }
 }
+

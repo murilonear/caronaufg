@@ -38,4 +38,6 @@
     <string name="change_for_driver">Alterar para Motorista</string>
     <string name="my_schedules_passenger">Histórico de Viagens</string>
     <string name="travel_history_passenger">Histórico de Viagens - Passageiro</string>
+    <string name="error_connection">Você não tem conexão.</string>
+    <string name="label_wait">Aguarde</string>
 </resources>
