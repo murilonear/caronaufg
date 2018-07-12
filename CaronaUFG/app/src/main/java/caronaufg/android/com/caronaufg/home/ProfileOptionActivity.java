@@ -1,4 +1,4 @@
-package caronaufg.android.com.caronaufg.auth;
+package caronaufg.android.com.caronaufg.home;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -8,9 +8,13 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import caronaufg.android.com.caronaufg.R;
-
+import caronaufg.android.com.caronaufg.auth.LoginActivity;
+import caronaufg.android.com.caronaufg.menu.MenuDriverActivity;
+import caronaufg.android.com.caronaufg.menu.MenuPassengerActivity;
 public class ProfileOptionActivity extends AppCompatActivity {
+    private FirebaseAuth firebaseAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +31,7 @@ public class ProfileOptionActivity extends AppCompatActivity {
         leaveOptionProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                firebaseAuth.signOut();
                 Toast.makeText(ProfileOptionActivity.this, "Efetuando logout", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(ProfileOptionActivity.this, LoginActivity.class));
             }

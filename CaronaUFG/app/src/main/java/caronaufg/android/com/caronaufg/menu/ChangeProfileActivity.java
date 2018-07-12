@@ -1,4 +1,4 @@
-package caronaufg.android.com.caronaufg.auth;
+package caronaufg.android.com.caronaufg.menu;
 
 import android.content.Intent;
 import android.support.design.widget.TextInputEditText;
@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import caronaufg.android.com.caronaufg.R;
+import caronaufg.android.com.caronaufg.home.ProfileOptionActivity;
 
 public class ChangeProfileActivity extends AppCompatActivity {
 

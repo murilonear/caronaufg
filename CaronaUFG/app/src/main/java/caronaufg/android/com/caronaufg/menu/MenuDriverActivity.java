@@ -1,4 +1,4 @@
-package caronaufg.android.com.caronaufg.auth;
+package caronaufg.android.com.caronaufg.menu;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +9,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import caronaufg.android.com.caronaufg.R;
+import caronaufg.android.com.caronaufg.auth.LoginActivity;
+import caronaufg.android.com.caronaufg.history.TravelHistoryDriverActivity;
+import caronaufg.android.com.caronaufg.home.DriverHomeActivity;
+import caronaufg.android.com.caronaufg.home.ProfileOptionActivity;
 
 public class MenuDriverActivity extends AppCompatActivity {
 

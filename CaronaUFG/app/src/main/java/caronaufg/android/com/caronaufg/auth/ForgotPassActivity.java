@@ -23,7 +23,6 @@ public class ForgotPassActivity extends AppCompatActivity {
 
     private void setupButtonForgotSend() {
         TextInputEditText userEmailForgot = findViewById(R.id.userEmailForgotId);
-        TextInputEditText userLoginForgot = findViewById(R.id.userLoginForgotId);
         Button forgotSend = findViewById(R.id.buttonForgotSendId);
         forgotSend.setOnClickListener(new View.OnClickListener() {
             @Override

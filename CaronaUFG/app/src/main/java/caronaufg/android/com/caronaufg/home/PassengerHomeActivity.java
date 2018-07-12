@@ -1,4 +1,4 @@
-package caronaufg.android.com.caronaufg.auth;
+package caronaufg.android.com.caronaufg.home;
 
 import android.content.Intent;
 import android.support.design.widget.TextInputEditText;
@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import caronaufg.android.com.caronaufg.R;
+import caronaufg.android.com.caronaufg.menu.MenuPassengerActivity;
 
 public class PassengerHomeActivity extends AppCompatActivity {
 
@@ -23,7 +24,7 @@ public class PassengerHomeActivity extends AppCompatActivity {
     private void setupButtonSavePassengerConfig(){
         TextInputEditText beginPassenger = findViewById(R.id.beginPassengerId);
         TextInputEditText goalPassenger = findViewById(R.id.goalPassengerId);
-        TextInputEditText horaryPassenger = findViewById(R.id.horaryPassengerId);
+        TextInputEditText timePassenger = findViewById(R.id.timePassengerId);
         TextInputEditText datePassenger = findViewById(R.id.datePassengerId);
         Button savePassenger = findViewById(R.id.savePassengerConfigId);
 

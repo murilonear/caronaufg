@@ -19,14 +19,14 @@
         </activity>
         <activity android:name=".auth.RegisterActivity" />
         <activity android:name=".auth.ForgotPassActivity" />
-        <activity android:name=".auth.ProfileOptionActivity" />
-        <activity android:name=".auth.ChangeProfileActivity" />
-        <activity android:name=".auth.DriverHomeActivity" />
-        <activity android:name=".auth.MenuDriverActivity" />
-        <activity android:name=".auth.TravelHistoryDriverActivity" />
-        <activity android:name=".auth.PassengerHomeActivity" />
-        <activity android:name=".auth.MenuPassengerActivity" />
-        <activity android:name=".auth.TravelHistoryPassengerActivity"></activity>
+        <activity android:name=".home.ProfileOptionActivity" />
+        <activity android:name=".menu.ChangeProfileActivity" />
+        <activity android:name=".home.DriverHomeActivity" />
+        <activity android:name=".menu.MenuDriverActivity" />
+        <activity android:name=".history.TravelHistoryDriverActivity" />
+        <activity android:name=".home.PassengerHomeActivity" />
+        <activity android:name=".menu.MenuPassengerActivity" />
+        <activity android:name=".history.TravelHistoryPassengerActivity"></activity>
     </application>
 
 </manifest>

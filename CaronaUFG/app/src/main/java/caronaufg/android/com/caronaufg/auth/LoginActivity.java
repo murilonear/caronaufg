@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
+import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
@@ -12,18 +13,23 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
+import org.w3c.dom.Text;
 
 import caronaufg.android.com.caronaufg.R;
-import caronaufg.android.com.caronaufg.web.WebError;
-import caronaufg.android.com.caronaufg.web.WebTaskLogin;
+import caronaufg.android.com.caronaufg.home.ProfileOptionActivity;
 
 public class LoginActivity extends AppCompatActivity {
-
+    private FirebaseAuth firebaseAuth;
     MaterialDialog dialog;
 
     @Override
@@ -31,21 +37,41 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         getSupportActionBar().hide();
-        setupLogin();
         setupButtonRegister();
         setupButtonForgotPassword();
+        setupButtonLogin();
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        EventBus.getDefault().register(this);
+    private void userLogin(String email, String password) {
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            Log.i("signIn", "Sucesso ao fazer login do usuário");
+                            startActivity(new Intent(LoginActivity.this, ProfileOptionActivity.class));
+                        } else {
+                            Toast.makeText(LoginActivity.this, "Email ou senha incorretos", Toast.LENGTH_SHORT).show();
+                            Log.i("signIn", "Falha ao fazer login do usuário");
+                        }
+                    }
+                });
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        EventBus.getDefault().unregister(this);
+    private void setupButtonLogin() {
+        final TextInputEditText userEmailLogin = findViewById(R.id.userEmailLoginId);
+        final TextInputEditText userPasswordLogin = findViewById(R.id.userPasswordLoginId);
+        Button buttonUserLogin = findViewById(R.id.buttonLoginId);
+        buttonUserLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showLoading();
+                userLogin(userEmailLogin.getText().toString(),userPasswordLogin.getText().toString());
+                hideLoading();
+            }
+        });
+
     }
 
     private void setupButtonForgotPassword() {
@@ -69,38 +95,6 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private void setupLogin() {
-        Button buttonLogin = findViewById(R.id.buttonLoginId);
-        buttonLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                tryLogin();
-            }
-        });
-    }
-
-    private void tryLogin() {
-        EditText userLogin = findViewById(R.id.userLoginId);
-        EditText userPasswordLogin = findViewById(R.id.userPasswordLoginId);
-     /* String loginDB = userLogin.getText().toString();
-        String passDB = userPasswordLogin.getText().toString();
-        SQLiteDatabase bancoDados = openOrCreateDatabase("bdLocal",MODE_PRIVATE,null);
-        bancoDados.execSQL("CREATE TABLE IF NOT EXISTS usuario(login VARCHAR, password VARCHAR)");
-        bancoDados.execSQL("INSERT INTO usuario(login,password) VALUES (loginDB,passDB)");
-        Cursor cursor = bancoDados.rawQuery("SELECT login, password FROM usuario",null);
-        int indiceColunaLogin = cursor.getColumnIndex("login");
-        int indiceColunaPassword = cursor.getColumnIndex("password");
-        cursor.moveToFirst();
-        Log.i("Resultado - Login:", cursor.getString(indiceColunaLogin));
-        Log.i("Resultado - Password", cursor.getString(indiceColunaPassword));
-   */
-        if (!"".equals(userLogin.getText().toString())) {
-            showLoading();
-            sendCredentials(userLogin.getText().toString(), userPasswordLogin.getText().toString());
-            startActivity(new Intent(getApplicationContext(), ProfileOptionActivity.class)); // Temporário, so para fazer o login
-        }
-        userLogin.setError("Preencha o campo nome de usuário");
-    }
 
     private void showLoading() {
         dialog = new MaterialDialog.Builder(this)
@@ -108,28 +102,6 @@ public class LoginActivity extends AppCompatActivity {
                 .progress(true, 0)
                 .cancelable(false)
                 .show();
-    }
-
-    private void sendCredentials(String login, String pass) {
-        WebTaskLogin taskLogin = new WebTaskLogin(this, login, pass);
-        taskLogin.execute();
-    }
-
-    @Subscribe
-    public void onEvent(String response) {
-        hideLoading();
-        Intent openUrlIntent = new Intent(Intent.ACTION_VIEW);
-        openUrlIntent.setData(
-                Uri.parse("http://www.freescreencleaner.com/"));
-        startActivity(openUrlIntent);
-    }
-
-    @Subscribe
-    public void onEvent(WebError error) {
-        hideLoading();
-        Snackbar.make(findViewById(R.id.container),
-                error.getMessage(),
-                Snackbar.LENGTH_LONG).show();
     }
 
     private void hideLoading() {

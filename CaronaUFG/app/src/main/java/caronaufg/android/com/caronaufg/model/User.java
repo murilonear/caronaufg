@@ -1,34 +1,19 @@
 package caronaufg.android.com.caronaufg.model;
 
 public class User {
-
-    private String name;
+    private String nome;
     private String email;
-    private String login;
     private String password;
 
-    public String getName() {
-        return name;
+    public User() {
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getNome() {
+        return nome;
     }
 
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getEmail() {
@@ -37,5 +22,13 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
