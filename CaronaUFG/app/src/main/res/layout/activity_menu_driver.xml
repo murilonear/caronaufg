@@ -52,21 +52,10 @@
             android:textSize="18sp" />
 
         <Button
-            android:id="@+id/waitPassengerId"
-            android:layout_width="332dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/imageView2"
-            android:layout_centerHorizontal="true"
-            android:background="@android:color/background_light"
-            android:text="Passageiros aguardando (2)"
-            android:textAllCaps="false"
-            android:textSize="18sp" />
-
-        <Button
             android:id="@+id/mySchedulesDriverId"
             android:layout_width="333dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/waitPassengerId"
+            android:layout_below="@+id/changeForPassengerId"
             android:layout_centerHorizontal="true"
             android:background="@android:color/background_light"
             android:text="@string/my_schedules_driver"

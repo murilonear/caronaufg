@@ -1,4 +1,5 @@
 <resources>
+    <string name="add_task_button">Nova Carona</string>
     <string name="app_name">Carona UFG</string>
     <string name="user_login">Email</string>
     <string name="user_password">Senha</string>
@@ -29,14 +30,14 @@
     <string name="text_number_places">Quantidade de Vagas:</string>
     <string name="value_driver_text">Valor da Carona:</string>
     <string name="change_for_passanger">Alterar para passageiro</string>
-    <string name="my_schedules_driver">Meus horários</string>
+    <string name="my_schedules_driver">Inserir Carona</string>
     <string name="travel_history">Histórico de Viagens</string>
     <string name="change_profile">Alterar Perfil</string>
     <string name="travel_history_driver"> Histórico de Viagens do Motorista</string>
     <string name="back_to_menu">Voltar ao menu</string>
     <string name="passenger_text">Carona UFG - Passageiro</string>
     <string name="change_for_driver">Alterar para Motorista</string>
-    <string name="my_schedules_passenger">Histórico de Viagens</string>
+    <string name="my_schedules_passenger">Meus horários</string>
     <string name="travel_history_passenger">Histórico de Viagens - Passageiro</string>
     <string name="error_connection">Você não tem conexão.</string>
     <string name="label_wait">Aguarde</string>
