@@ -31,9 +31,9 @@ public class ProfileOptionActivity extends AppCompatActivity {
         leaveOptionProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                firebaseAuth.signOut();
                 Toast.makeText(ProfileOptionActivity.this, "Efetuando logout", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(ProfileOptionActivity.this, LoginActivity.class));
+                //firebaseAuth.signOut();
             }
         });
 
