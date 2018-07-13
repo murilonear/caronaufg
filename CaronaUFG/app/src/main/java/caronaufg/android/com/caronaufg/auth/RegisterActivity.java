@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.android.gms.common.util.Hex;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -21,6 +22,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 import caronaufg.android.com.caronaufg.R;
 import caronaufg.android.com.caronaufg.model.User;
@@ -36,20 +41,20 @@ public class RegisterActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         setupButtonRegister();
     }
-    private  void registerUser(String nome, String email, String password){
+    private  void registerUser(String nome, String email, String password) throws NoSuchAlgorithmException, UnsupportedEncodingException{
         User user = new User();
         user.setNome(nome);
         user.setEmail(email);
-        userReference.child("002").setValue(user);
+        user.setPassword(password);
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        String key = database.getReference("users").push().getKey();
+        userReference.child(key).setValue(user);
         firebaseAuth = FirebaseAuth.getInstance();
-        firebaseAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
+        firebaseAuth.createUserWithEmailAndPassword(user.getEmail(),user.getPassword()).addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-               if(task.isSuccessful()){
-                   Log.i("createUser","Cadastro realizado com sucesso");
-               }else{
-                   Log.i("createUser", "Falha ao realizar o cadastro");
-               }
+                String message = (task.isSuccessful()) ? "Cadastro realizado com sucesso" : "Falha ao realizar o cadastro";
+                Log.i("createUser",message);
             }
         });
     }
@@ -62,7 +67,13 @@ public class RegisterActivity extends AppCompatActivity {
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                registerUser(userNameRegister.getText().toString(),userEmailRegister.getText().toString(),userPassRegister.getText().toString());
+                try {
+                    registerUser(userNameRegister.getText().toString(),userEmailRegister.getText().toString(),userPassRegister.getText().toString());
+                } catch (NoSuchAlgorithmException e) {
+                    e.printStackTrace();
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
                 Toast.makeText(getApplicationContext(), "Cadastro realizado com sucesso", Toast.LENGTH_LONG).show();
                 finish();
             }

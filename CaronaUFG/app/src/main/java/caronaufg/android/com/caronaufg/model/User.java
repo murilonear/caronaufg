@@ -1,5 +1,10 @@
 package caronaufg.android.com.caronaufg.model;
 
+import java.io.UnsupportedEncodingException;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 public class User {
     private String nome;
     private String email;
@@ -28,7 +33,9 @@ public class User {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPassword(String password) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+        MessageDigest messageDigest =  MessageDigest.getInstance("SHA-256");
+        messageDigest.update(password.getBytes("UTF-8"));
+        this.password = new BigInteger(1, messageDigest.digest()).toString(16);
     }
 }

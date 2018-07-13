@@ -25,8 +25,12 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.w3c.dom.Text;
 
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
+
 import caronaufg.android.com.caronaufg.R;
 import caronaufg.android.com.caronaufg.home.ProfileOptionActivity;
+import caronaufg.android.com.caronaufg.model.User;
 
 public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
@@ -42,18 +46,23 @@ public class LoginActivity extends AppCompatActivity {
         setupButtonLogin();
     }
 
-    private void userLogin(String email, String password) {
+    private void userLogin(String email, String password) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+
+        User user = new User();
+        user.setEmail(email);
+        user.setPassword(password);
+
         firebaseAuth = FirebaseAuth.getInstance();
-        firebaseAuth.signInWithEmailAndPassword(email, password)
+        firebaseAuth.signInWithEmailAndPassword(user.getEmail(), user.getPassword())
                 .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+                        String message = (task.isSuccessful()) ? "Sucesso ao fazer login do usuário" : "Falha ao fazer login do usuário";
+                        Log.i("signIn",message);
                         if (task.isSuccessful()) {
-                            Log.i("signIn", "Sucesso ao fazer login do usuário");
                             startActivity(new Intent(LoginActivity.this, ProfileOptionActivity.class));
                         } else {
                             Toast.makeText(LoginActivity.this, "Email ou senha incorretos", Toast.LENGTH_SHORT).show();
-                            Log.i("signIn", "Falha ao fazer login do usuário");
                         }
                     }
                 });
@@ -67,7 +76,13 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 showLoading();
-                userLogin(userEmailLogin.getText().toString(),userPasswordLogin.getText().toString());
+                try {
+                    userLogin(userEmailLogin.getText().toString(),userPasswordLogin.getText().toString());
+                } catch (NoSuchAlgorithmException e) {
+                    e.printStackTrace();
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
                 hideLoading();
             }
         });
