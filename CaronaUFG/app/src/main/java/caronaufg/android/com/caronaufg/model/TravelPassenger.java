@@ -1,11 +1,12 @@
 package caronaufg.android.com.caronaufg.model;
 
+import java.sql.Time;
 import java.util.Date;
 
 public class TravelPassenger {
     private String beginPassenger;
     private String goalPassenger;
-    private Date datePassenger;
+    private String datePassenger;
     private String timePassenger;
 
     public TravelPassenger() {
@@ -27,11 +28,11 @@ public class TravelPassenger {
         this.goalPassenger = goalPassenger;
     }
 
-    public Date getDatePassenger() {
+    public String getDatePassenger() {
         return datePassenger;
     }
 
-    public void setDatePassenger(Date datePassenger) {
+    public void setDatePassenger(String datePassenger) {
         this.datePassenger = datePassenger;
     }
 

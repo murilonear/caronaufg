@@ -8,6 +8,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import caronaufg.android.com.caronaufg.R;
 import caronaufg.android.com.caronaufg.auth.LoginActivity;
 import caronaufg.android.com.caronaufg.history.TravelHistoryDriverActivity;
@@ -79,15 +82,17 @@ public class MenuDriverActivity extends AppCompatActivity {
         changeForPassenger.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MenuDriverActivity.this, ProfileOptionActivity.class));
+                startActivity(new Intent(MenuDriverActivity.this, MenuPassengerActivity.class));
             }
         });
 
     }
     private void setupNameMenuDriver(){
-        TextView nameMenuDriver = findViewById(R.id.nameMenuDriveId);
-        // Nome temporário, este nome irá ser alterado dinamicamente com o usuário
-        nameMenuDriver.setText("Motorista"+": "+"Teste");
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        FirebaseUser firebaseUser = auth.getCurrentUser();
 
+        String userEmail = (firebaseUser != null) ? firebaseUser.getEmail() : "Convidado";
+        TextView nameMenuDriver = findViewById(R.id.nameMenuDriveId);
+        nameMenuDriver.setText(userEmail);
     }
 }

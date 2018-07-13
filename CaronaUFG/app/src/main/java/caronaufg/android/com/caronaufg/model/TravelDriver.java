@@ -1,12 +1,13 @@
 package caronaufg.android.com.caronaufg.model;
 
+import java.sql.Time;
 import java.util.Date;
 
 public class TravelDriver {
 
     private String beginDriver;
     private String goalDriver;
-    private Date dateDriver;
+    private String dateDriver;
     private String time;
     private int numberPlaces;
     private double valueDriver;
@@ -30,11 +31,11 @@ public class TravelDriver {
         this.goalDriver = goalDriver;
     }
 
-    public Date getDateDriver() {
+    public String getDateDriver() {
         return dateDriver;
     }
 
-    public void setDateDriver(Date dateDriver) {
+    public void setDateDriver(String dateDriver) {
         this.dateDriver = dateDriver;
     }
 

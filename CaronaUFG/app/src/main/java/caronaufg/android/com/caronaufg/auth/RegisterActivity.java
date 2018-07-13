@@ -32,8 +32,8 @@ import caronaufg.android.com.caronaufg.model.User;
 public class RegisterActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-    private DatabaseReference userReference = databaseReference.child("usuarios").child("Id");
-    private DatabaseReference idReference = databaseReference.child("usuarios");
+    private DatabaseReference userReference = databaseReference.child("usuarios");
+    private DatabaseReference idReference = userReference.child("Id");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,8 +46,8 @@ public class RegisterActivity extends AppCompatActivity {
         user.setDisplayName(nome);
         user.setEmail(email);
         user.setPassword(password);
-        String key = userReference.push().getKey();
-        userReference.child(key).setValue(user);
+        String key = idReference.push().getKey();
+        idReference.child(key).setValue(user);
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseAuth.createUserWithEmailAndPassword(user.getEmail(),user.getPassword()).addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
             @Override

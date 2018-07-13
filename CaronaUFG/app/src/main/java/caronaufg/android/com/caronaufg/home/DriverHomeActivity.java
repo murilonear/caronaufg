@@ -14,6 +14,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
+import java.sql.Time;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -26,9 +27,10 @@ import caronaufg.android.com.caronaufg.model.TravelDriver;
 
 
 public class DriverHomeActivity extends AppCompatActivity {
-    private FirebaseAuth firebaseAuth;
+    private FirebaseDatabase database;
     private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-    private DatabaseReference travelReference = databaseReference.child("usuarios").child("caronasMotorista");
+    private DatabaseReference travelReference = databaseReference.child("caronasMotorista");
+    private DatabaseReference idReference = travelReference.child("Id");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,15 +39,17 @@ public class DriverHomeActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         setupSaveDriverConfig();
     }
-    private void registerTravel(String begin, String goal, Date dateDriver, String time,int numberPlaces, double valueDriver){
+    private void registerTravel(String begin, String goal, String dateDriver, String time, int numberPlaces, double valueDriver){
         TravelDriver travelDriver = new TravelDriver();
         travelDriver.setBeginDriver(begin);
         travelDriver.setGoalDriver(goal);
         travelDriver.setDateDriver(dateDriver);
         travelDriver.setNumberPlaces(numberPlaces);
         travelDriver.setValueDriver(valueDriver);
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        travelReference.setValue(travelDriver);
+        travelDriver.setTime(time);
+        database = FirebaseDatabase.getInstance();
+        String key = idReference.push().getKey();
+        idReference.child(key).setValue(travelDriver);
     }
     private void setupSaveDriverConfig() {
         final TextInputEditText beginDriver = findViewById(R.id.beginDriverId);
@@ -58,16 +62,11 @@ public class DriverHomeActivity extends AppCompatActivity {
         saveDriverConfig.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DateFormat format = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH);
-                    try {
-                        final double value = Double.parseDouble(valueDriver.getText().toString());
-                        final int places = Integer.parseInt(numberPlaces.getText().toString());
-                        final Date date = format.parse(dateDriver.getText().toString());
-                    registerTravel(beginDriver.getText().toString(),goalDriver.getText().toString(),date, horaryDriver.getText()
-                            .toString(), places, value);
-                }catch (ParseException e) {
-                        e.printStackTrace();
-                    }
+                final double value = Double.parseDouble(valueDriver.getText().toString());
+                final int places = Integer.parseInt(numberPlaces.getText().toString());
+                final String date = dateDriver.getText().toString();
+                registerTravel(beginDriver.getText().toString(),goalDriver.getText().toString(),date, horaryDriver.getText()
+                    .toString(), places, value);
                 Toast.makeText(DriverHomeActivity.this, "Carona salva com sucesso", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(DriverHomeActivity.this, MenuDriverActivity.class));
             }
