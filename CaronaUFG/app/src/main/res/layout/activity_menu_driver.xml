@@ -58,7 +58,7 @@
             android:layout_below="@+id/changeForPassengerId"
             android:layout_centerHorizontal="true"
             android:background="@android:color/background_light"
-            android:text="@string/my_schedules_driver"
+            android:text="@string/new_ride"
             android:textAllCaps="false"
             android:textSize="18sp" />
 

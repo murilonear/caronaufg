@@ -1,10 +1,11 @@
-package caronaufg.android.com.caronaufg.recycler;
+package caronaufg.android.com.caronaufg.recycler.driver;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import java.util.List;
 
 import caronaufg.android.com.caronaufg.R;
@@ -20,7 +21,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder
     @Override
     public RecyclerViewHolders onCreateViewHolder(ViewGroup parent, int viewType) {
         RecyclerViewHolders viewHolder = null;
-        View layoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.to_do_list, parent, false);
+        View layoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.recicler_to_do_list, parent, false);
         viewHolder = new RecyclerViewHolders(layoutView, travelDriver);
         return viewHolder;
     }

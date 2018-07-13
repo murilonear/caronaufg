@@ -60,7 +60,7 @@
             android:layout_below="@+id/imageView3"
             android:layout_centerHorizontal="true"
             android:background="@android:color/background_light"
-            android:text="Solicitações   (4)"
+            android:text="@string/new_ride"
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textSize="18sp" />
