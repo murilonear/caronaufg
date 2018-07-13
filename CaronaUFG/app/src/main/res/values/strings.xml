@@ -19,8 +19,8 @@
     <string name="text_leave">Sair</string>
     <string name="age_change_profile">Idade</string>
     <string name="change_course">Curso</string>
-    <string name="user_pass_current">Senha Atual</string>
-    <string name="new_pass">Nova Senha</string>
+    <string name="user_pass_current">Senha</string>
+    <string name="new_pass">Senha</string>
     <string name="save_change">Salvar</string>
     <string name="driver_text">Carona UFG - Motorista</string>
     <string name="text_begin">De:</string>
