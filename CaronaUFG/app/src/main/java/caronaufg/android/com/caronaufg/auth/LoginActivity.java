@@ -60,9 +60,11 @@ public class LoginActivity extends AppCompatActivity {
                         String message = (task.isSuccessful()) ? "Sucesso ao fazer login do usuário" : "Falha ao fazer login do usuário";
                         Log.i("signIn",message);
                         if (task.isSuccessful()) {
+                            hideLoading();
                             startActivity(new Intent(LoginActivity.this, ProfileOptionActivity.class));
                         } else {
                             Toast.makeText(LoginActivity.this, "Email ou senha incorretos", Toast.LENGTH_SHORT).show();
+                            hideLoading();
                         }
                     }
                 });
@@ -75,6 +77,8 @@ public class LoginActivity extends AppCompatActivity {
         buttonUserLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(!"".equals(userEmailLogin.getText().toString()) &&
+                        !"".equals(userPasswordLogin.getText().toString())){
                 showLoading();
                 try {
                     userLogin(userEmailLogin.getText().toString(),userPasswordLogin.getText().toString());
@@ -83,7 +87,11 @@ public class LoginActivity extends AppCompatActivity {
                 } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();
                 }
-                hideLoading();
+                }else if("".equals(userEmailLogin.getText().toString())){
+                    userEmailLogin.setError("Preencha o campo email");
+                }else if("".equals(userPasswordLogin.getText().toString())){
+                    userPasswordLogin.setError("Preencha o campo senha");
+                }
             }
         });
 
