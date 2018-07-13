@@ -9,6 +9,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import caronaufg.android.com.caronaufg.R;
 import caronaufg.android.com.caronaufg.auth.LoginActivity;
 import caronaufg.android.com.caronaufg.menu.MenuDriverActivity;
@@ -62,8 +64,12 @@ public class ProfileOptionActivity extends AppCompatActivity {
     }
 
     private void setupNameTextProfileOption() {
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        FirebaseUser firebaseUser = auth.getCurrentUser();
+
+        String userEmail = (firebaseUser != null) ? firebaseUser.getEmail() : "Convidado";
         TextView userNameProfile = findViewById(R.id.userNameProfileId);
-        userNameProfile.setText("Teste"); // Nome temporário, este nome será alterado dinamicamente
+        userNameProfile.setText(userEmail);
     }
 }
 

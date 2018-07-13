@@ -43,11 +43,10 @@ public class RegisterActivity extends AppCompatActivity {
     }
     private  void registerUser(String nome, String email, String password) throws NoSuchAlgorithmException, UnsupportedEncodingException{
         User user = new User();
-        user.setNome(nome);
+        user.setDisplayName(nome);
         user.setEmail(email);
         user.setPassword(password);
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        String key = database.getReference("users").push().getKey();
+        String key = userReference.push().getKey();
         userReference.child(key).setValue(user);
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseAuth.createUserWithEmailAndPassword(user.getEmail(),user.getPassword()).addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
